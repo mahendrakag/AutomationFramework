@@ -13,7 +13,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public abstract class SeleniumClass extends BaseClass {
 
-		WebDriver driver;
+		public WebDriver driver;
 		public void launchBrowser(String browserName)
 		{
 			String path=super.getAndConcatCurrentPath("\\src\\test\\java\\Drivers\\");
