@@ -4,16 +4,21 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public abstract class SeleniumClass extends BaseClass {
 
-		public WebDriver driver;
+		 static WebDriver driver;
+		protected enum locators{id,name,className,tagName,LinkText, partiallinkText,xpath,css};
+		protected enum action {click,selectByindex,selectByValue,selectbyvisibleText};
 		public void launchBrowser(String browserName)
 		{
 			String path=super.getAndConcatCurrentPath("\\src\\test\\java\\Drivers\\");
@@ -78,5 +83,41 @@ public abstract class SeleniumClass extends BaseClass {
 			e.printStackTrace();
 		}
 		
+		}
+		public WebElement identifyElement(locators type,String value)
+		{
+			
+			switch(type) {
+			case id			:return driver.findElement(By.id(value));
+			case name		:return driver.findElement(By.name(value));
+			case className	:return driver.findElement(By.className(value));
+			case tagName	:return driver.findElement(By.tagName(value));
+			case LinkText	:return driver.findElement(By.linkText(value));
+			case partiallinkText:return driver.findElement(By.partialLinkText(value));
+			case xpath		:return driver.findElement(By.xpath(value));
+			case css		:return driver.findElement(By.cssSelector(value));
+			
+			
+			}
+			return null;
+			
+		}
+		public void performAction(action type,WebElement element,String value)
+		{
+			Select sel;
+			switch(type)
+			{
+				case click			:element.click();
+							break;
+				case selectByindex	: sel =new  Select(element);
+					sel.selectByIndex(Integer.parseInt(value));
+							break;
+				case selectByValue	:	sel =new  Select(element);
+					sel.selectByValue(value);
+							break;
+				case selectbyvisibleText: sel =new  Select(element);
+					sel.selectByVisibleText(value);	
+							break;
+			}
 		}
 }

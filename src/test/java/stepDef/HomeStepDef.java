@@ -48,7 +48,15 @@ public class HomeStepDef {
 		//System.out.println("launching browser");
 		String actual=hp.getPageDetails(type);
 		hp.assertResult(actual,expected);
+		
 	}
+		@Then("^click on homepage link \"([^\"]*)\"$")
+		public void click_on_homepage_link(String arg2) throws Throwable {
+		    // Write code here that turns the phrase above into concrete actions
+		    hp.clickHomePageLink(arg2);
+		    
+		}
+	
 	@After
 	public void closeBrowserTakeScreenshot(Scenario sce)
 	{
