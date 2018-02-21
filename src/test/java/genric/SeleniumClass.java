@@ -18,7 +18,7 @@ public abstract class SeleniumClass extends BaseClass {
 
 		 static WebDriver driver;
 		protected enum locators{id,name,className,tagName,LinkText, partiallinkText,xpath,css};
-		protected enum action {click,selectByindex,selectByValue,selectbyvisibleText};
+		protected enum action {click,selectByindex,selectByValue,selectbyvisibleText,sendkeys};
 		public void launchBrowser(String browserName)
 		{
 			String path=super.getAndConcatCurrentPath("\\src\\test\\java\\Drivers\\");
@@ -118,6 +118,7 @@ public abstract class SeleniumClass extends BaseClass {
 				case selectbyvisibleText: sel =new  Select(element);
 					sel.selectByVisibleText(value);	
 							break;
+				case sendkeys:		element.sendKeys(value);	
 			}
 		}
 }
