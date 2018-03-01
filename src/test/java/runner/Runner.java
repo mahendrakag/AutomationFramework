@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 		glue ="stepDef",
 		monochrome =true,
 		dryRun =false,
-		tags= {"@login"},
+		tags= {"@nwp"},
 		plugin = {"pretty","html:target/cucumber-report",
 				"json:target/cucumber-report/c.json",
 				"junit:target/cucumber-reports/Cucumber.xml",

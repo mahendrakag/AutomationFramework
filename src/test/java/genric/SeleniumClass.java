@@ -2,6 +2,7 @@ package genric;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -18,7 +19,7 @@ public abstract class SeleniumClass extends BaseClass {
 
 		 static WebDriver driver;
 		protected enum locators{id,name,className,tagName,LinkText, partiallinkText,xpath,css};
-		protected enum action {click,selectByindex,selectByValue,selectbyvisibleText,sendkeys};
+		protected enum action {click,selectByindex,selectByValue,selectbyvisibleText,sendkeys,switchWindow};
 		public void launchBrowser(String browserName)
 		{
 			String path=super.getAndConcatCurrentPath("\\src\\test\\java\\Drivers\\");
@@ -119,6 +120,30 @@ public abstract class SeleniumClass extends BaseClass {
 					sel.selectByVisibleText(value);	
 							break;
 				case sendkeys:		element.sendKeys(value);	
+							break;
+				case switchWindow:  
+					String parenthandle =driver.getWindowHandle();
+					Set<String> handles= driver.getWindowHandles();
+					for(String id:handles)
+					{
+						if(id.equals(parenthandle))
+						{
+							continue;
+						}
+						else
+						{
+							driver.switchTo().window(id);
+							String actual=this.getPageDetails("title");
+							if(actual.equals(value))
+							{
+								break;
+							}
+							else {
+								continue;
+							}
+						}
+					}
+					break;
 			}
 		}
 }

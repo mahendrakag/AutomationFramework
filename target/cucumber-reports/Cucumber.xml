@@ -1,59 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="4" time="89.098732">
-    <testcase classname="to verify FormAuth page scenarios." name="to verify Login with Correct details" time="44.771321">
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="18.248121">
+    <testcase classname="to verify Multiple windows page scenarios." name="to verify multiple windows" time="18.248121">
         <system-out>
             <![CDATA[Given launch "chrome" browser...............................................passed
 Then launch url "https://the-internet.herokuapp.com/".......................passed
 And verify page by "url" with "https://the-internet.herokuapp.com/".........passed
 And verify page by "title" with "The Internet"..............................passed
-Then click on homepage link "Form Authentication"...........................passed
-And verify page by "url" with "https://the-internet.herokuapp.com/login"....passed
-Then enter the username "tomsmith" in username field........................passed
-And enter the password "SuperSecretPassword!" in password field.............passed
-Then click on Login button "Login"..........................................passed
-And verify page by "url" with "https://the-internet.herokuapp.com/secure"...passed
-]]>
-        </system-out>
-    </testcase>
-    <testcase classname="to verify FormAuth page scenarios." name="to verify login page with incorrect details." time="20.403132">
-        <system-out>
-            <![CDATA[Given launch "chrome" browser...............................................passed
-Then launch url "https://the-internet.herokuapp.com/".......................passed
-And verify page by "url" with "https://the-internet.herokuapp.com/".........passed
-And verify page by "title" with "The Internet"..............................passed
-Then click on homepage link "Form Authentication"...........................passed
-And verify page by "url" with "https://the-internet.herokuapp.com/login"....passed
-Then enter the username "tomsmith11" in username field......................passed
-And enter the password "SuperSecretPassword!" in password field.............passed
-Then click on Login button "Login"..........................................passed
-]]>
-        </system-out>
-    </testcase>
-    <testcase classname="to verify FormAuth page scenarios." name="to verify login page with incorrect details." time="12.15097">
-        <system-out>
-            <![CDATA[Given launch "chrome" browser...............................................passed
-Then launch url "https://the-internet.herokuapp.com/".......................passed
-And verify page by "url" with "https://the-internet.herokuapp.com/".........passed
-And verify page by "title" with "The Internet"..............................passed
-Then click on homepage link "Form Authentication"...........................passed
-And verify page by "url" with "https://the-internet.herokuapp.com/login"....passed
-Then enter the username "tomsmith" in username field........................passed
-And enter the password "SuperSecretPassword!11" in password field...........passed
-Then click on Login button "Login"..........................................passed
-]]>
-        </system-out>
-    </testcase>
-    <testcase classname="to verify FormAuth page scenarios." name="to verify login page with incorrect details." time="11.773309">
-        <system-out>
-            <![CDATA[Given launch "chrome" browser...............................................passed
-Then launch url "https://the-internet.herokuapp.com/".......................passed
-And verify page by "url" with "https://the-internet.herokuapp.com/".........passed
-And verify page by "title" with "The Internet"..............................passed
-Then click on homepage link "Form Authentication"...........................passed
-And verify page by "url" with "https://the-internet.herokuapp.com/login"....passed
-Then enter the username "tomsmith11" in username field......................passed
-And enter the password "SuperSecretPassword!11" in password field...........passed
-Then click on Login button "Login"..........................................passed
+Then click on homepage link "Multiple Windows"..............................passed
+And verify page by "url" with "https://the-internet.herokuapp.com/windows"..passed
+Then click on "Click Here" link.............................................passed
+Then switch to another window with title as "New Window"....................passed
+And verify text as "New Window".............................................passed
+Then switch to another window with title as "The Internet"..................passed
+And verify page by "url" with "https://the-internet.herokuapp.com/windows"..passed
 ]]>
         </system-out>
     </testcase>
